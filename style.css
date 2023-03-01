@@ -4,20 +4,38 @@
     font-family: 'Mulish', sans-serif;
 }
 
+.html {
+    background-color: #fBfBfB;
+}
+
 /* 1st nav */
 .nav-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     box-shadow: 0 9px 20px -20px rgb(40, 44, 63);
     padding: 10px;
-    padding-bottom: 20px;
-    padding-right: 90px;
-    padding-left: 50px;
     margin-bottom: 40px;
     position: sticky;
     z-index: 10;
     top: 0;
     background-color: white;
+    align-items: center;
+}
+
+.menu {
+    visibility: hidden;
+}
+
+.menu:hover+.right {
+    display: flex;
+    flex-flow: column wrap;
+    position: absolute;
+    top: 68px;
+    right: 0;
+    width: 150px;
+    height: 100vh;
+    justify-content: flex-start;
+    padding-top: 20px;
 }
 
 .other {
@@ -41,11 +59,10 @@
     color: #686b78;
     background-color: white;
     font-weight: 300;
-    margin-left: 5px;
-    padding-left: 5px;
     font-size: 13px;
     cursor: pointer;
 }
+
 
 .right {
     display: flex;
@@ -53,8 +70,13 @@
     align-items: center;
     gap: 60px;
     cursor: pointer;
-    color: #686b78;
+    color: #51535d;
     background-color: white;
+}
+
+a {
+    text-decoration: none;
+    color: #a1a3b1;
 }
 
 .logo {
@@ -76,6 +98,8 @@
     margin: auto;
     margin-top: 40px;
     padding-left: 30px;
+    padding: 5px;
+    padding-bottom: 16px;
 }
 
 
@@ -91,16 +115,24 @@
 
 .nav-container1>.right-half {
     display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
     gap: 20px;
     margin: 0;
-    color: #686b78;
+    color: #a5a8af;
     font-size: 16px;
     cursor: pointer;
     font-weight: 300;
 }
 
-.nav-container1>.right-half>span {
-    font-weight: 300;
+.right-half span {
+    padding-bottom: 9px;
+    font-weight: lighter;
+}
+
+.right-half span:hover {
+    border-bottom: solid .1px rgb(188, 172, 172);
+
 }
 
 
@@ -201,7 +233,7 @@ h3 {
 
 .card:hover {
     outline: solid 0.5px rgb(204, 195, 189);
-    box-shadow: 2 10px 20px -20px rgb(40, 44, 63);
+    box-shadow: 3px 10px 25px -20px rgb(40, 44, 63);
 
 }
 
@@ -238,42 +270,90 @@ h3 {
 /* footer section */
 
 .footer {
-    padding: 0 20px;
-    z-index: 10;
-    background-color: #000;
-    min-height: 298px;
-    width: 100%;
-    color: #fff;
-    overflow: scroll;
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 100px;
 }
 
-.footer1 {
-    width: 100%;
+h5 {
+    color: #808080;
+    margin: 10px 0px;
+}
+
+.footer>div {
     display: flex;
-    background-color: #000000;
-    justify-content: space-around;
-    max-width: 1200px;
-    min-width: 1200px;
-    margin: 0 auto;
-    padding: 76px 0;
-    height: 100%;
+    flex-flow: column wrap;
+    gap: 8px;
 }
 
-.details {
-    color: #948e8e;
-    font-size: 15px;
-    font-weight: 600;
-    width: 300px;
-    margin: 26px 0px 10px 15px;
+.footer>div>a {
+    color: white;
+    text-decoration: none;
 }
 
-.footer-ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
+.footer img {
+    width: 150px;
+    border: 2px solid gray;
+    border-radius: 10px;
 }
 
-.footer-li {
-    padding: 20px 10px 2px 0px;
-    color: rgb(214, 201, 201);
+.footer img:hover {
+    width: 160px;
+}
+
+.store-container {
+    align-items: center;
+    gap: 100px;
+}
+
+.footer a {
+    font-weight: 300;
+}
+
+.footer a:hover {
+    font-weight: bold;
+}
+
+/* responsive view */
+
+@media (max-width: 800px) {
+    .card-container {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    .footer {
+        grid-template-columns: repeat(2, auto)
+    }
+
+    .menu {
+        visibility: visible;
+    }
+
+    .right {
+        display: none;
+    }
+
+    .menu:hover+.right {
+        display: flex;
+        flex-flow: column wrap;
+        position: absolute;
+        top: 65px;
+        right: 0;
+        width: 150px;
+        height: 100vh;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    .card-container {
+        grid-template-columns: auto;
+        justify-items: center;
+    }
+
+    .footer {
+        grid-template-columns: auto;
+        gap: 20px;
+    }
 }
